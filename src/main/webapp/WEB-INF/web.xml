@@ -23,6 +23,29 @@
         <param-name>primefaces.THEME</param-name>
         <param-value>omega</param-value>
     </context-param>
+    <!-- Enable FontAwesome -->
+    <context-param>  
+        <param-name>primefaces.FONT_AWESOME</param-name>  
+        <param-value>true</param-value>  
+    </context-param> 
+
+    <!-- Enable PrimeFaces BeanValidation to HTML -->
+    <context-param>
+        <param-name>primefaces.TRANSFORM_METADATA</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <!-- Enable PrimeFaces Script optimization to render scripts after DOM loads -->
+    <context-param>
+        <param-name>primefaces.MOVE_SCRIPTS_TO_BOTTOM</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <!-- Enable PrimeFaces partial ajax submit to reduce network traffic  -->
+    <context-param>
+        <param-name>primefaces.SUBMIT</param-name>
+        <param-value>partial</param-value>
+    </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
