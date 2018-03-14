@@ -23,6 +23,11 @@
         <param-name>primefaces.THEME</param-name>
         <param-value>omega</param-value>
     </context-param>
+    <!-- Enable FontAwesome -->
+    <context-param>  
+        <param-name>primefaces.FONT_AWESOME</param-name>  
+        <param-value>true</param-value>  
+    </context-param> 
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
