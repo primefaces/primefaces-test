@@ -5,7 +5,4 @@ This is a sample maven project that used <strong>PF6.2</strong> version. If you 
 
 You can execute the sample with <strong>mvn jetty:run-exploded</strong> command and hit <strong>http://localhost:8080/primefaces-test</strong> to run the page.
 
-Per default the application used Mojarra 2.2.x. You can also use other versions by:
--Pmyfaces22
--Pmyfaces23
--Pmojarra23
+Per default the application used Mojarra 2.2.x. You can also use other versions with the available maven profiles: myfaces22, myfaces23, mojarra23
