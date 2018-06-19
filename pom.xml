@@ -132,7 +132,7 @@
 
     <profiles>
         <profile>
-            <id>myfaces-22</id>
+            <id>myfaces22</id>
             <properties>
                 <jsf-listener>org.apache.myfaces.webapp.StartupServletContextListener</jsf-listener>
             </properties>
@@ -150,7 +150,7 @@
             </dependencies>
         </profile>
         <profile>
-            <id>myfaces-23</id>
+            <id>myfaces23</id>
             <properties>
                 <jsf-listener>org.apache.myfaces.webapp.StartupServletContextListener</jsf-listener>
             </properties>

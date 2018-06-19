@@ -22,6 +22,11 @@
         <param-value>true</param-value>
     </context-param>
 
+    <!-- Enable PostConstruct on JSF ManagedBeans on Jetty -->
+    <context-param>
+        <param-name>org.apache.myfaces.config.annotation.LifecycleProvider</param-name>
+        <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
+    </context-param>
 
     <listener>
         <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
