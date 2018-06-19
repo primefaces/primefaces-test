@@ -9,7 +9,8 @@
             </packagings>
             <goals>
                 <goal>clean</goal>
-                <goal>jetty:run</goal>
+                <goal>package</goal>
+                <goal>jetty:run-exploded</goal>
             </goals>
             <properties>
                 <skipTests>true</skipTests>
@@ -24,7 +25,8 @@
             </packagings>
             <goals>
                 <goal>clean</goal>
-                <goal>jetty:run</goal>
+                <goal>package</goal>
+                <goal>jetty:run-exploded</goal>
             </goals>
             <properties>
                 <skipTests>true</skipTests>
