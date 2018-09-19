@@ -9,6 +9,7 @@
     </h:head>
     <h:body>
         <h:form id="form">
+            First table - I can see filters and sorters
             <p:dataTable var="car" value="#{dtLazyView.lazyModel}" paginator="true" rows="10"
                          paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                          rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{dtLazyView.selectedCar}" id="carTable" lazy="true">
@@ -27,6 +28,7 @@
                 </p:column>
             </p:dataTable>
             <br /><br />
+            Second table - I cannot see filters and sorters
             <p:dataTable var="car" value="#{dtLazyView.lazyModel}" paginator="true" rows="10"
                          paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                          rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{dtLazyView.selectedCar}" id="carTable2" lazy="true">
