@@ -9,7 +9,9 @@
     </h:head>
     <h:body>
         <h:form id="form">
-            First table - I can see filters and sorters
+            <h1>First table</h1>
+            <p>I can see filters and sorters</p>
+            <p>Works with Primefaces version 6.1, 6.2 and 7.0 but it's not suitable for advanced filtering and sorting</p>
             <p:dataTable var="car" value="#{dtLazyView.lazyModel}" paginator="true" rows="10"
                          paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                          rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{dtLazyView.selectedCar}" id="carTable" lazy="true">
@@ -28,7 +30,9 @@
                 </p:column>
             </p:dataTable>
             <br /><br />
-            Second table - I cannot see filters and sorters
+            <h1>Second table</h1>
+            <p>I cannot see filters and sorters</p>
+            <p>Works only with Primefaces version 6.1</p>
             <p:dataTable var="car" value="#{dtLazyView.lazyModel}" paginator="true" rows="10"
                          paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                          rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{dtLazyView.selectedCar}" id="carTable2" lazy="true">
@@ -47,7 +51,9 @@
                 </p:column>
             </p:dataTable>
             <br /><br />
-            Third table - Instead of using field="nameOfTheSortedAndFilteredField" I can use sortBy=\#{nameOfTheSortedAndFilteredField} filterBy=\#{nameOfTheSortedAndFilteredField}
+            <h1>Third table</h1>
+            <p>Instead of using field="nameOfTheSortedAndFilteredField" I can use sortBy=\#{nameOfTheSortedAndFilteredField} filterBy=\#{nameOfTheSortedAndFilteredField}</p>
+            <p>Works with Primefaces version 6.1 and 6.2 but not with 7.0</p>
             <p:dataTable var="car" value="#{dtLazyView.lazyModel}"
                          scrollRows="20" scrollable="true" virtualScroll="true" scrollHeight="200" lazy="true" rows="40"
                          id="carTable3">
