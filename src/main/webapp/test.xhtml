@@ -71,6 +71,27 @@
                     <h:outputText value="#{car.color}" />
                 </p:column>
             </p:dataTable>
+            <br /><br />
+            <h1>Fourth table</h1>
+            <p>Use field="nameOfTheSortedAndFilteredField" and sortBy=\#{nameOfTheSortedAndFilteredField} filterBy=\#{nameOfTheSortedAndFilteredField}</p>
+            <p>Works with Primefaces 7.0</p>
+            <p:dataTable var="car" value="#{dtLazyView.lazyModel}"
+                         scrollRows="20" scrollable="true" virtualScroll="true" scrollHeight="200" lazy="true" rows="40"
+                         id="carTable4">
+                <p:ajax event="rowSelect" listener="#{dtLazyView.onRowSelect}" update=":form:carDetail" oncomplete="PF('carDialog').show()" />
+                <p:column headerText="Id" field="id" sortBy="#{id}" filterBy="#{id}">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year" field="year" sortBy="#{year}" filterBy="#{year}">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:column headerText="Brand" field="brand" sortBy="#{brand}" filterBy="#{brand}">
+                    <h:outputText value="#{car.brand}" />
+                </p:column>
+                <p:column headerText="Color" field="color" sortBy="#{color}" filterBy="#{color}">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+            </p:dataTable>
 
             <p:dialog header="Car Detail" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                 <p:outputPanel id="carDetail" style="text-align:center;">
