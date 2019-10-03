@@ -2,10 +2,10 @@ package org.primefaces.test;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
-@ManagedBean(name = "testView")
+@Named
 @ViewScoped
 public class TestView implements Serializable {
     
