@@ -13,7 +13,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <owb.version>2.0.11</owb.version>
+        <owb.version>2.0.12</owb.version>
         <jetty.version>9.4.20.v20190813</jetty.version>
     </properties>
 
