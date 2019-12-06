@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -88,7 +88,7 @@
             <version>${owb.version}</version>
         </dependency>
     </dependencies>
-    
+
     <repositories>
         <repository>
             <id>primefaces</id>
@@ -129,7 +129,7 @@
                         </resource>
                     </webResources>
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                    <webXml>${project.build.directory}/web.xml</webXml>
                 </configuration>
             </plugin>
             <plugin>
@@ -141,17 +141,29 @@
                         <contextPath>/primefaces-test</contextPath>
                     </webAppConfig>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
+                    <webXml>${project.build.directory}/web.xml</webXml>
                 </configuration>
             </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/webapp/WEB-INF</directory>
+                <includes>
+                    <include>web.xml</include>
+                </includes>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}</targetPath>
+            </resource>
+        </resources>
     </build>
 
     <profiles>
         <profile>
             <id>myfaces22</id>
-            <properties>
-                <jsf-listener>org.apache.myfaces.webapp.StartupServletContextListener</jsf-listener>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
@@ -164,12 +176,14 @@
                     <version>2.2.12</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/filters/myfaces.properties</filter>
+                </filters>
+            </build>
         </profile>
         <profile>
             <id>myfaces23</id>
-            <properties>
-                <jsf-listener>org.apache.myfaces.webapp.StartupServletContextListener</jsf-listener>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
@@ -182,17 +196,18 @@
                     <version>2.3.3</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/filters/myfaces.properties</filter>
+                </filters>
+            </build>
         </profile>
-
 
         <profile>
             <id>mojarra22</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <jsf-listener>com.sun.faces.config.ConfigureListener</jsf-listener>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.glassfish</groupId>
@@ -200,12 +215,14 @@
                     <version>2.2.19</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/filters/mojarra.properties</filter>
+                </filters>
+            </build>
         </profile>
         <profile>
             <id>mojarra23</id>
-            <properties>
-                <jsf-listener>com.sun.faces.config.ConfigureListener</jsf-listener>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.glassfish</groupId>
@@ -213,8 +230,11 @@
                     <version>2.3.13</version>
                 </dependency>
             </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/filters/mojarra.properties</filter>
+                </filters>
+            </build>
         </profile>
     </profiles>
-
-
 </project>
