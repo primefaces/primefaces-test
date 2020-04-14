@@ -53,7 +53,7 @@ public class LazyCarDataModel extends LazyDataModel<Car> {
                 for (Iterator<String> it = filterBy.keySet().iterator(); it.hasNext();) {
                     try {
                         String filterProperty = it.next();
-                        Object filterValue = filterBy.get(filterProperty);
+                        Object filterValue = filterBy.get(filterProperty).getFilterValue();
                         String fieldValue = String.valueOf(car.getClass().getField(filterProperty).get(car));
  
                         if(filterValue == null || fieldValue.startsWith(filterValue.toString())) {
