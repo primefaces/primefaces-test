@@ -11,7 +11,7 @@
         <h:form id="form">
             <h1>First table</h1>
             <p>I can see filters and sorters</p>
-            <p>Works with Primefaces version 6.1, 6.2 and 7.0 but it's not suitable for advanced filtering and sorting</p>
+            <p>Works with Primefaces version 6.1, 6.2, 7.0 and 8.0 but it's not suitable for advanced filtering and sorting</p>
             <p:dataTable var="car" value="#{dtLazyView.lazyModel}" paginator="true" rows="10"
                          paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                          rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{dtLazyView.selectedCar}" id="carTable" lazy="true">
@@ -89,6 +89,27 @@
                     <h:outputText value="#{car.brand}" />
                 </p:column>
                 <p:column headerText="Color" field="color" sortBy="#{color}" filterBy="#{color}">
+                    <h:outputText value="#{car.color}" />
+                </p:column>
+            </p:dataTable>
+            <br /><br />
+            <h1>Fifth table</h1>
+            <p>Use field="nameOfTheSortedAndFilteredField" and sortBy=\#{foo} filterBy=\#{bar}<br />sortBy and filterBy are needed only for enabling sorters and filters.</p>
+            <p>Works with Primefaces 7.0 and 8.0</p>
+            <p:dataTable var="car" value="#{dtLazyView.lazyModel}"
+                         scrollRows="20" scrollable="true" virtualScroll="true" scrollHeight="200" lazy="true" rows="40"
+                         id="carTable5">
+                <p:ajax event="rowSelect" listener="#{dtLazyView.onRowSelect}" update=":form:carDetail" oncomplete="PF('carDialog').show()" />
+                <p:column headerText="Id" field="id" sortBy="#{foo}" filterBy="#{foo}">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year" field="year" sortBy="#{bar}" filterBy="#{bar}">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:column headerText="Brand" field="brand" sortBy="#{foo}" filterBy="#{bar}">
+                    <h:outputText value="#{car.brand}" />
+                </p:column>
+                <p:column headerText="Color" field="color" sortBy="#{bar}" filterBy="#{foo}">
                     <h:outputText value="#{car.color}" />
                 </p:column>
             </p:dataTable>
