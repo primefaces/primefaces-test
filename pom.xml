@@ -255,29 +255,12 @@
 
         <profile>
             <id>payara</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <jsf-listener>com.sun.faces.config.ConfigureListener</jsf-listener>
             </properties>
-            <dependencies>
-<!--                 <dependency> -->
-<!--                     <groupId>org.glassfish</groupId> -->
-<!--                     <artifactId>jakarta.el</artifactId> -->
-<!--                     <version>3.0.3</version> -->
-<!--                     <scope>provided</scope> -->
-<!--                 </dependency> -->
-<!--                 <dependency> -->
-<!--                     <groupId>org.glassfish</groupId> -->
-<!--                     <artifactId>jakarta.faces</artifactId> -->
-<!--                     <version>2.3.14.payara-p1</version> -->
-<!--                     <scope>compile</scope> -->
-<!--                 </dependency> -->
-<!--                 <dependency> -->
-<!--                     <groupId>jakarta.faces</groupId> -->
-<!--                     <artifactId>jakarta.faces-api</artifactId> -->
-<!--                     <version>2.3.1</version> -->
-<!--                     <scope>provided</scope> -->
-<!--                 </dependency> -->
-            </dependencies>
         </profile>
 
     </profiles>

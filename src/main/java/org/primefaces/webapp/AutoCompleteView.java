@@ -6,6 +6,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Named
 @ViewScoped
@@ -31,8 +32,7 @@ public class AutoCompleteView implements Serializable {
      */
     public void onMatSelect(final AjaxBehaviorEvent e) {
         System.out.println("select event is ");
-        System.out.println(e.toString());
-        new RuntimeException("Svině!").printStackTrace(System.out);
+        System.out.println(Objects.requireNonNull(e, "EVENT is null!!!!!"));
     }
 
     /**

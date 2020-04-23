@@ -59,8 +59,8 @@ public abstract class SeleniumTest extends ContainerTest {
         this.userActions = new Actions(this.browser);
         LOG.info("context url={}", this.contextUrl);
         this.browser.manage().window().maximize();
-        this.browser.manage().timeouts().implicitlyWait(1, TimeUnit.MILLISECONDS);
-        this.browser.manage().timeouts().setScriptTimeout(1, TimeUnit.MILLISECONDS);
+        this.browser.manage().timeouts().implicitlyWait(5, TimeUnit.MILLISECONDS);
+        this.browser.manage().timeouts().setScriptTimeout(5, TimeUnit.MILLISECONDS);
 //        this.userActions.pause(Duration.ofSeconds(3)).perform();
         this.browser.get(this.contextUrl.toExternalForm() + "/index.xhtml");
     }

@@ -14,13 +14,13 @@
 
   <extension qualifier="webdriver">
     <!-- PhantomJS does not support ECMA's Intl at all (throw exceptions) -->
-    <!-- HtmlUnit does not support ECMA's Intl.DateTimeFormat.resolvedOptions -->
-    <!-- Firefox does not see options in PrimeFaces' select boxes -->
-    <!-- ChromeHeadless and Chrome are OK, but ignore Intl at all. -->
+    <!-- HtmlUnit does not support ECMA's Intl.DateTimeFormat.resolvedOptions and does not work with PF 9.0-SNAPSHOT -->
+    <!-- Firefox does not see options in PrimeFaces' select boxes and does not work with new Firefoxes -->
+    <!-- ChromeHeadless and Chrome are OK, but ignore Intl at all and has problems with closing. -->
     <!-- Edge is not supported on Linux -->
     <!-- Safari and Opera are dead. -->
-    <property name="browser">htmlunit</property>
-<!--     <property name="browser">chromeheadless</property> -->
+<!--     <property name="browser">htmlunit</property> -->
+    <property name="browser">chromeheadless</property>
     <property name="chromeDriverBinary">${chromedriver.path}</property>
     <!-- http://arquillian.org/arquillian-extension-drone/#webdriver-configuration -->
     <!-- https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/chrome/ChromeOptions.html -->
