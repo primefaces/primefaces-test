@@ -222,6 +222,26 @@
                 </filters>
             </build>
         </profile>
+        <profile>
+            <id>myfaces23next</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.myfaces.core</groupId>
+                    <artifactId>myfaces-api</artifactId>
+                    <version>2.3-next-M2</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.myfaces.core</groupId>
+                    <artifactId>myfaces-impl</artifactId>
+                    <version>2.3-next-M2</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/filters/myfaces.properties</filter>
+                </filters>
+            </build>
+        </profile>
 
         <profile>
             <id>mojarra22</id>
