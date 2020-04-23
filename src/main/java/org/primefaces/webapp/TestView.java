@@ -1,4 +1,4 @@
-package org.primefaces.test;
+package org.primefaces.webapp;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;

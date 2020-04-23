@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>AutoComplete</title>
+</h:head>
+<h:body>
+    <h3>PrimeFaces AutoComplete Example</h3>
+    <h:form id="form123">
+        <p:outputLabel value="DropDown:" for="dd" />
+        <p:autoComplete id="dd" dropdown="true" value="#{autoCompleteView.txt6}"
+                        forceSelection="true"
+                        queryDelay="3000"
+                        minQueryLength="5"
+                        completeMethod="#{autoCompleteView.completeText}" >
+
+            <p:ajax event="itemSelect" listener="#{autoCompleteView.onMatSelect}" process="@this" update="@form"/>
+
+        </p:autoComplete>
+    </h:form>
+</h:body>
+</html>

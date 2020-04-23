@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://jboss.org/schema/arquillian"
+  xsi:schemaLocation="http://jboss.org/schema/arquillian
+    http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+  <engine>
+    <property name="deploymentExportPath">target/deployment</property>
+  </engine>
+  <container qualifier="glassfish-embedded" default="true">
+    <configuration>
+      <property name="bindHttpPort">58690</property>
+      <property name="bindHttpsPort">58691</property>
+    </configuration>
+  </container>
+
+  <extension qualifier="webdriver">
+    <!-- PhantomJS does not support ECMA's Intl at all (throw exceptions) -->
+    <!-- HtmlUnit does not support ECMA's Intl.DateTimeFormat.resolvedOptions -->
+    <!-- Firefox does not see options in PrimeFaces' select boxes -->
+    <!-- ChromeHeadless and Chrome are OK, but ignore Intl at all. -->
+    <!-- Edge is not supported on Linux -->
+    <!-- Safari and Opera are dead. -->
+    <property name="browser">htmlunit</property>
+<!--     <property name="browser">chromeheadless</property> -->
+    <property name="chromeDriverBinary">${chromedriver.path}</property>
+    <!-- http://arquillian.org/arquillian-extension-drone/#webdriver-configuration -->
+    <!-- https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/chrome/ChromeOptions.html -->
+    <!-- https://sites.google.com/a/chromium.org/chromedriver/capabilities -->
+    <property name="chromePrintOptions">true</property>
+    <property name="chromeArguments">
+      --verbose
+      --window-size=1920,1080
+      --lang=us
+    </property>
+    <!-- https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_switches.cc -->
+    <property name="chromeSwitches">
+      --disable-search-geolocation-disclosure
+      --disable-web-security
+      --user-data-dir=${project.build.directory}/chromeUserHome
+    </property>
+    <!-- https://chromium.googlesource.com/chromium/src/+/master/chrome/common/pref_names.cc -->
+    <property name="chromeExperimentalOption">
+    {
+      'prefs': {
+        'profile.default_content_setting_values.geolocation': 2,
+        'download.default_directory': '${project.build.directory}/',
+        'download.directory_upgrade': true,
+        'download_restrictions': 0,
+        'download.prompt_for_download': false,
+        'extensions.disabled': true,
+        'download.extensions_to_open': '',
+        'profile.default_content_settings.popups': 0
+      }
+    }
+    </property>
+  </extension>
+</arquillian>

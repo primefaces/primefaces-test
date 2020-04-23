@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>component</title>
+</h:head>
+
+    <cc:interface>
+        <cc:attribute name="id" required="true" />
+        <cc:attribute name="matSelectListener" method-signature="void matSelectListener(javax.faces.event.AjaxBehaviorEvent)"/>
+        <cc:attribute name="completeMatMethod" method-signature="java.util.List completeText(java.lang.String)"/>
+        <cc:attribute name="matPerEntity" required="true"/>
+
+    </cc:interface>
+
+<cc:implementation>
+    <h:form id="${cc.attrs.id}Form">
+        <p:panelGrid id="${cc.attrs.id}Grid">
+            <p:column>
+                <h:outputText value="Material:" />
+            </p:column>
+            <p:autoComplete id="${cc.attrs.id}_single_material" queryDelay="3000" minQueryLength="5"
+                            dropdown="true"  forceSelection="true"
+                            completeMethod="#{cc.attrs.completeMatMethod}" value="#{cc.attrs.matPerEntity}">
+                <p:ajax event="itemSelect" listener="#{cc.attrs.matSelectListener}" process="@this" update="@form"/>
+            </p:autoComplete>
+        </p:panelGrid>
+    </h:form>
+</cc:implementation>
+
+</html>
