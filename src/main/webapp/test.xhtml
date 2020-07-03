@@ -5,15 +5,35 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html">
 
-    <h:head>
-        <title>PrimeFaces Test</title>
-    </h:head>
-    <h:body>
-
-        <h1>#{testView.testString}</h1>
-        <h:form id="frmTest">
-            
-        </h:form>
-
-    </h:body>
+<h:head>
+    <title>PrimeFaces Test</title>
+</h:head>
+<h:body>
+<style>
+    td {width:16.6%}
+</style>
+    <h1>#{testView.testString}</h1>
+    <h:form id="frmTest">
+        <h2>DataScroller with LazyDataModel</h2>
+            <p:dataScroller value="#{testView.carsLDM}"
+                            lazy="true" rowIndexVar="rowVar"
+                            var="car" chunkSize="#{testView.chunkSize}">
+                <f:facet name="header">
+                    Scroll Down to Load More Cars
+                </f:facet>
+                <h:panelGrid columns="6" style="width:50%">
+                    <p:commandLink
+                            value="#{rowVar}"
+                            update="frmTest:growl"
+                            action="#{testView.reportIdOfCar(car)}" />
+                    <h:outputText value="#{car.id}"/>
+                    <h:outputText value="#{car.brand}"/>
+                    <h:outputText value="#{car.year}"/>
+                    <h:outputText value="#{car.color}"/>
+                    <h:outputText value="#{car.price}"/>
+                </h:panelGrid>
+            </p:dataScroller>
+        <p:growl id="growl" showDetail="true" sticky="true" />
+    </h:form>
+</h:body>
 </html>
