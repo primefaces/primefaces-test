@@ -7,3 +7,7 @@ You can execute the sample with <strong>mvn jetty:run</strong> command and hit <
 
 Per default the application uses Mojarra 2.2.x. 
 You can also use other versions with the available maven profiles: myfaces22, myfaces23, mojarra23
+`mvn clean jetty:run-exploded -Pmyfaces22`
+`mvn clean jetty:run-exploded -Pmyfaces23`
+`mvn clean jetty:run-exploded -Pmojarra22`
+`mvn clean jetty:run-exploded -Pmojarra23`
