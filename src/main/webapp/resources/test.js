@@ -1,0 +1,1 @@
+/* Place any Javascript here you want loaded in test.xhtml */
