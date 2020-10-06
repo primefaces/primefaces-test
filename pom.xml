@@ -272,5 +272,20 @@
                 </filters>
             </build>
         </profile>
+        <profile>
+            <id>mojarra24</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>jakarta.faces</artifactId>
+                    <version>2.4.0</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/filters/mojarra.properties</filter>
+                </filters>
+            </build>
+        </profile>
     </profiles>
 </project>
