@@ -148,6 +148,7 @@
                 <configuration>
                     <webAppConfig>
                         <contextPath>/primefaces-test</contextPath>
+                        <jettyEnvXml>${project.basedir}/src/main/conf/jetty-env.xml</jettyEnvXml>
                     </webAppConfig>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
                     <webXml>${project.build.directory}/web.xml</webXml>
@@ -187,7 +188,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/filters/myfaces.properties</filter>
+                    <filter>${basedir}/src/main/conf/myfaces.properties</filter>
                 </filters>
             </build>
         </profile>
@@ -207,7 +208,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/filters/myfaces.properties</filter>
+                    <filter>${basedir}/src/main/conf/myfaces.properties</filter>
                 </filters>
             </build>
         </profile>
@@ -227,7 +228,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/filters/myfaces.properties</filter>
+                    <filter>${basedir}/src/main/conf/myfaces.properties</filter>
                 </filters>
             </build>
         </profile>
@@ -246,7 +247,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/filters/mojarra.properties</filter>
+                    <filter>${basedir}/src/main/conf/mojarra.properties</filter>
                 </filters>
             </build>
         </profile>
@@ -261,7 +262,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/filters/mojarra.properties</filter>
+                    <filter>${basedir}/src/main/conf/mojarra.properties</filter>
                 </filters>
             </build>
         </profile>
