@@ -1,26 +1,27 @@
 package org.primefaces.test;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.math.BigDecimal;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
+import lombok.Data;
+
+@Data
 @Named
 @ViewScoped
 public class TestView implements Serializable {
     
-    private String testString;
+    private String string;
+    private Integer integer;
+    private BigDecimal decimal;
+    private LocalDateTime localDateTime;
     
     @PostConstruct  
     public void init() {
-        testString = "Welcome to PrimeFaces!!!";
+        string = "Welcome to PrimeFaces!!!";
     }
 
-    public String getTestString() {
-        return testString;
-    }
-
-    public void setTestString(String testString) {
-        this.testString = testString;
-    }    
 }
