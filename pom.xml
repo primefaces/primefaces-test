@@ -111,11 +111,12 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <webAppConfig>
+                    <!-- see https://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html#pg-configuration-6 -->
+                    <webApp>
                         <contextPath>/primefaces-test</contextPath>
                         <jettyEnvXml>${project.basedir}/src/main/conf/jetty-env.xml</jettyEnvXml>
-                    </webAppConfig>
-                    <scanIntervalSeconds>5</scanIntervalSeconds>
+                    </webApp>
+                    <scan>5</scan>
                     <webXml>${project.build.directory}/web.xml</webXml>
                 </configuration>
             </plugin>
