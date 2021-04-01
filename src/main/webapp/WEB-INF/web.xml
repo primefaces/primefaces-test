@@ -28,9 +28,9 @@
     <listener>
         <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
     </listener>
-    <listener>
-        <listener-class>${jsf-listener}</listener-class>
-    </listener>
+<!--    <listener>-->
+<!--        <listener-class>${jsf-listener}</listener-class>-->
+<!--    </listener>-->
 
 
     <servlet>
