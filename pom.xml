@@ -30,6 +30,12 @@
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet-core</artifactId>
             <version>4.0.1.Final</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>jakarta.el</groupId>
+                    <artifactId>jakarta.el-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>jakarta.servlet.jsp.jstl</groupId>-->

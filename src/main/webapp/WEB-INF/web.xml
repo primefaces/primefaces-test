@@ -25,9 +25,9 @@
         <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
     </context-param>
 
-    <listener>
-        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
-    </listener>
+<!--    <listener>-->
+<!--        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>-->
+<!--    </listener>-->
 <!--    <listener>-->
 <!--        <listener-class>${jsf-listener}</listener-class>-->
 <!--    </listener>-->
