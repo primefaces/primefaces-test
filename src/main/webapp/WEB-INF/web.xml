@@ -25,14 +25,6 @@
         <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
     </context-param>
 
-<!--    <listener>-->
-<!--        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>-->
-<!--    </listener>-->
-<!--    <listener>-->
-<!--        <listener-class>${jsf-listener}</listener-class>-->
-<!--    </listener>-->
-
-
     <servlet>
         <servlet-name>facesServlet</servlet-name>
         <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
@@ -41,11 +33,6 @@
         <servlet-name>facesServlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-
-<!--    <resource-env-ref>-->
-<!--        <resource-env-ref-name>BeanManager</resource-env-ref-name>-->
-<!--        <resource-env-ref-type>jakarta.enterprise.inject.spi.BeanManager</resource-env-ref-type>-->
-<!--    </resource-env-ref>-->
 
     <mime-mapping>
         <extension>ttf</extension>
