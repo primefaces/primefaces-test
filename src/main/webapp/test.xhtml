@@ -13,7 +13,10 @@
 
         <h1>#{testView.string}</h1>
         <h:form id="frmTest">
-            
+            <p:fileUpload mode="simple"
+                          onupload="console.log('ON UPLOAD CALLED!');"
+                          oncancel="console.log('ON CANCEL CALLED!');">
+            </p:fileUpload>
         </h:form>
 
     </h:body>
