@@ -15,7 +15,7 @@
 
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>saga</param-value>
+        <param-value>start</param-value>
     </context-param>
 
     <!-- Enable PostConstruct on JSF ManagedBeans on Jetty -->

@@ -10,6 +10,44 @@
 <h:head>
     <title>PrimeFaces Test</title>
     <h:outputScript name="test.js" />
+    <style>
+        body .ui-input-icon-right > i:last-of-type {
+            right: 0.5rem;
+            color: #6c757d;
+        }
+        body .ui-input-icon-left > i, body .ui-input-icon-right > i {
+            position: absolute;
+            top: 50%;
+            margin-top: -.5rem;
+        }
+        body .ui-password .ui-password-icon {
+            cursor: pointer;
+        }
+
+        body .ui-password.ui-password-masked .ui-password-icon {
+            font-family: 'primeicons' !important;
+            font-style: normal;
+            font-weight: normal;
+            display: inline-block;
+            background: none;
+        }
+
+        body .ui-password.ui-password-masked .ui-password-icon:before {
+            content: "\e966";
+        }
+
+        body .ui-password.ui-password-unmasked .ui-password-icon {
+            font-family: 'primeicons' !important;
+            font-style: normal;
+            font-weight: normal;
+            display: inline-block;
+            background: none;
+        }
+
+        body .ui-password.ui-password-unmasked .ui-password-icon:before {
+            content: "\e965";
+        }
+    </style>
 </h:head>
 <h:body>
     <f:view>
@@ -17,21 +55,8 @@
         <h:form id="frmTest">
 
             <h:panelGrid id="test-file-selection" style="width: 25%;" columns="1" columnClasses="wcGridCol1" >
-                <p:fileUpload listener="#{fileUploadView.handleFileUpload}" accept=".csv" mode="advanced" dragDropSupport="false"
-                              auto="true" multiple="true" update="test-file-selection" sizeLimit="800000" fileLimit="200"
-                              allowTypes="/(\.|\/)(csv)$/" disabled="#{fileUploadView.uploadedFiles.size() gt 0}"/>
-
-                <h:panelGroup id="selected-logs" rendered="#{fileUploadView.uploadedFiles.size() gt 0}">
-                    <p:dataTable var="item" value="${fileUploadView.uploadedFiles}">
-                        <p:column headerText="Selected Logs">
-                            <h:outputText value="#{item}" />
-                        </p:column>
-                    </p:dataTable>
-                    <h:panelGrid>
-                        <h:outputText value="Number of Exceptions: #{fileUploadView.exceptionCount}"/>
-                    </h:panelGrid>
-                    <p:commandButton update="test-file-selection" value="Clear List" action="#{fileUploadView.clearLogList}"/>
-                </h:panelGroup>
+                <h5>Toggle Mask</h5>
+                <p:password id="toggle" required="true" value="#{passwordView.password6}" toggleMask="true" redisplay="true"/>
             </h:panelGrid>
 
         </h:form>

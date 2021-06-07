@@ -24,6 +24,13 @@
             <version>10.0.0</version>
         </dependency>
 
+        <!-- Primefaces Theme Library -->
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>start</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+
         <!-- javax.* APIs -->
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
