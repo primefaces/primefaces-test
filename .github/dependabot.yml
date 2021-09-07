@@ -2,6 +2,17 @@ version: 2
 updates:
   - package-ecosystem: "maven"
     directory: "/"
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/"
+    target-branch: "jakarta"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/"
+    target-branch: "payara"
     schedule:
       interval: "daily"
   - package-ecosystem: "github-actions"
