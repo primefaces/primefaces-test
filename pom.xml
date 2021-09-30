@@ -15,6 +15,7 @@
 
         <owb.version>2.0.23</owb.version>
         <jetty.version>9.4.43.v20210629</jetty.version>
+        <jetty.port>8080</jetty.port>
     </properties>
 
     <dependencies>
@@ -158,6 +159,12 @@
                     </webAppConfig>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
                     <webXml>${project.build.directory}/web.xml</webXml>
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>${jetty.port}</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
                 </configuration>
             </plugin>
         </plugins>
