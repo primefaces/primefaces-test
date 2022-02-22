@@ -196,7 +196,7 @@
         <profile>
             <id>payara5</id>
             <properties>
-                <dependency.payara.version>5.2021.10</dependency.payara.version>
+                <dependency.payara.version>5.2022.1</dependency.payara.version>
                 <payara-micro-maven-plugin.version>1.4.0</payara-micro-maven-plugin.version>
                 <deploy.http.port>8080</deploy.http.port>
             </properties>
