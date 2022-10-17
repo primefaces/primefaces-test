@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class TestJpa {
+public class ChildJpa {
 
     @Id
     private Long id;
@@ -26,8 +24,5 @@ public class TestJpa {
     private Long numberCol;
     private BigDecimal decimalCol;
     private Date dateCol;
-    @JoinColumn
-    @ManyToOne
-    private ChildJpa child;
 
 }
