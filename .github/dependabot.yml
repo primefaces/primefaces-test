@@ -15,3 +15,8 @@ updates:
     target-branch: "payara"
     schedule:
       interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/"
+    target-branch: "jpa"
+    schedule:
+      interval: "daily"
