@@ -28,3 +28,14 @@ You can also use other versions with the available maven profiles: myfaces22, my
 By default the application runs on port 8080 but if you would like to use a different port you can pass `-Djetty.port=5000` like:
 
 `mvn clean jetty:run -Djetty.port=5000`
+
+### Jakarta EE10 Version
+***
+
+The branch `jakarta` contains a PrimeFaces Test setup to run again Jakarta EE10 profile using Jetty 11.
+
+### JPA Lazy Datatable
+***
+
+The branch `jpa` contains a PrimeFaces Test setup to run with JPA using the JPA LazyDatatable advanced example.
+
