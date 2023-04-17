@@ -39,3 +39,7 @@ The branch `jakarta` contains a PrimeFaces Test setup to run again Jakarta EE10 
 
 The branch `jpa` contains a PrimeFaces Test setup to run with JPA using the JPA LazyDatatable advanced example.
 
+### Visual Studio Code Quickstart
+***
+
+See [this guide](./vscode-quickstart.md) for information on running `primefaces-test` in Visual Studio Code.
