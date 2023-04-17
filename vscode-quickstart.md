@@ -22,7 +22,7 @@
 3. Click Run on the "run" goal
 
 ### Method #2
-1. Open Command Pallette (Ctrl+Shift+P)
+1. Open Command Pallette (`Ctrl+Shift+P`)
 2. Run "Tasks: Run Build Task" (`Ctrl+Shift+B` is a shortcut for this)
 
 ## Debugging
