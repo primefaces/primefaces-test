@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "verify",
+            "label": "run",
             "type": "shell",
             "command": "mvn -B clean jetty:run",
             "group": "build"
