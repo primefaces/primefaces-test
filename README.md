@@ -42,4 +42,4 @@ The branch `jpa` contains a PrimeFaces Test setup to run with JPA using the JPA 
 ### Visual Studio Code Quickstart
 ***
 
-See [this guide](./vscode-quickstart.md) for information on running `primefaces-test` in Visual Studio Code.
+See the [quickstart guide for running in Visual Studio Code](./vscode-quickstart.md) for more information.
