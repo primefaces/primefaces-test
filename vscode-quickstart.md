@@ -3,8 +3,8 @@
 ## Prerequisites
 
 1. [JDK installed and `JAVA_HOME` env variable set](https://github.com/redhat-developer/vscode-java/wiki/JDK-Requirements)
-2. [Maven installed](https://maven.apache.org/install.html)
-3. [Visual Studio Code installed](https://code.visualstudio.com/docs/setup/setup-overview), either via installer or portable
+2. [Maven](https://maven.apache.org/install.html) installed
+3. [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview) installed, either via installer or portable
 
 ## Setup
 
