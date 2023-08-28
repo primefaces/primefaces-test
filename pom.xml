@@ -167,12 +167,6 @@
 					</webAppConfig>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 					<webXml>${project.build.directory}/web.xml</webXml>
-					<connectors>
-						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>${jetty.port}</port>
-							<maxIdleTime>60000</maxIdleTime>
-						</connector>
-					</connectors>
 				</configuration>
 			</plugin>
 		</plugins>
