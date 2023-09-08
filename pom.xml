@@ -9,7 +9,6 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <owb.version>2.0.27</owb.version>
         <jetty.version>11.0.16</jetty.version>
     </properties>
     <dependencies>
