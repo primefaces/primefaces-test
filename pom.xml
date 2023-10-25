@@ -10,6 +10,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jetty.version>11.0.17</jetty.version>
+        <jetty.port>8080</jetty.port>
     </properties>
     <dependencies>
         <dependency>
@@ -102,13 +103,11 @@
                     </webApp>
                     <scan>5</scan>
                     <webXml>${project.build.directory}/web.xml</webXml>
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <host>0.0.0.0</host>
-                            <port>${jetty.port}</port>
-                            <maxIdleTime>60000</maxIdleTime>
-                        </connector>
-                    </connectors>
+                    <httpConnector>
+                        <host>0.0.0.0</host>
+                        <port>${jetty.port}</port>
+                        <idleTimeout>60000</idleTimeout>
+                    </httpConnector>
                 </configuration>
             </plugin>
         </plugins>
