@@ -167,6 +167,11 @@
 					</webAppConfig>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 					<webXml>${project.build.directory}/web.xml</webXml>
+					<httpConnector>
+                                             <host>0.0.0.0</host>
+                                             <port>${jetty.port}</port>
+                                             <idleTimeout>60000</idleTimeout>
+                                        </httpConnector>
 				</configuration>
 			</plugin>
 		</plugins>
