@@ -104,7 +104,7 @@
                     <webXml>${project.build.directory}/web.xml</webXml>
                     <connectors>
                         <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <host>>0.0.0.0</host>
+                            <host>0.0.0.0</host>
                             <port>${jetty.port}</port>
                             <maxIdleTime>60000</maxIdleTime>
                         </connector>
