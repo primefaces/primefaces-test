@@ -148,11 +148,6 @@
                     <version>4.0.1</version>
                 </dependency>
             </dependencies>
-            <build>
-                <filters>
-                    <filter>${basedir}/src/main/conf/myfaces.properties</filter>
-                </filters>
-            </build>
         </profile>
         <profile>
             <id>mojarra40</id>
@@ -166,11 +161,6 @@
                     <version>4.0.5</version>
                 </dependency>
             </dependencies>
-            <build>
-                <filters>
-                    <filter>${basedir}/src/main/conf/mojarra.properties</filter>
-                </filters>
-            </build>
         </profile>
     </profiles>
 </project>

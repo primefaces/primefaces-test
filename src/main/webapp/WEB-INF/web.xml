@@ -19,12 +19,6 @@
         <param-value>saga</param-value>
     </context-param>
 
-    <!-- Enable PostConstruct on JSF ManagedBeans on Jetty -->
-    <context-param>
-        <param-name>org.apache.myfaces.config.annotation.LifecycleProvider</param-name>
-        <param-value>org.apache.myfaces.config.annotation.NoInjectionAnnotationLifecycleProvider</param-value>
-    </context-param>
-
     <servlet>
         <servlet-name>facesServlet</servlet-name>
         <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
