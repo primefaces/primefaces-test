@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.primefaces</groupId>
     <artifactId>primefaces-test</artifactId>
@@ -9,7 +10,7 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jetty.version>11.0.18</jetty.version>
+        <jetty.version>12.0.3</jetty.version>
         <jetty.port>8080</jetty.port>
     </properties>
     <dependencies>
@@ -48,17 +49,17 @@
         </dependency>
     </dependencies>
     <repositories>
-      <repository>
-        <id>sonatype-snapshots</id>
-        <name>Sonatype Snapshot Repository</name>
-        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        <releases>
-            <enabled>false</enabled>
-        </releases>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-      </repository>
+        <repository>
+            <id>sonatype-snapshots</id>
+            <name>Sonatype Snapshot Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
     <build>
         <plugins>
@@ -92,11 +93,11 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
+                <groupId>org.eclipse.jetty.ee10</groupId>
+                <artifactId>jetty-ee10-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <!-- see https://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html#pg-configuration-6 -->
+                    <!-- see https://eclipse.dev/jetty/documentation/jetty-12/programming-guide/index.html#jetty-run-goal -->
                     <webApp>
                         <contextPath>/primefaces-test</contextPath>
                         <jettyEnvXml>${project.basedir}/src/main/conf/jetty-env.xml</jettyEnvXml>
@@ -109,6 +110,13 @@
                         <idleTimeout>60000</idleTimeout>
                     </httpConnector>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.eclipse.jetty.ee10</groupId>
+                        <artifactId>jetty-ee10-cdi</artifactId>
+                        <version>${jetty.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
         <resources>
