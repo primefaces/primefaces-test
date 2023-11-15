@@ -87,7 +87,6 @@
                     <!-- see https://eclipse.dev/jetty/documentation/jetty-12/programming-guide/index.html#jetty-run-goal -->
                     <webApp>
                         <contextPath>/primefaces-test</contextPath>
-                        <jettyEnvXml>${project.basedir}/src/main/conf/jetty-env.xml</jettyEnvXml>
                     </webApp>
                     <scan>5</scan>
                     <httpConnector>
