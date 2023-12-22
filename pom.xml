@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.primefaces</groupId>
     <artifactId>primefaces-test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
     <name>primefaces-test</name>
-
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,14 +13,12 @@
         <jetty.version>9.4.53.v20231009</jetty.version>
         <jetty.port>8080</jetty.port>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>13.0.4</version>
         </dependency>
-
         <!-- javax.* APIs -->
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
@@ -55,7 +50,6 @@
             <artifactId>jaxb-impl</artifactId>
             <version>2.3.6</version>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -68,7 +62,6 @@
             <version>3.0.0</version>
             <scope>provided</scope>
         </dependency>
-
         <!-- OpenWebBeans -->
         <dependency>
             <groupId>org.apache.openwebbeans</groupId>
@@ -90,13 +83,11 @@
             <artifactId>openwebbeans-el22</artifactId>
             <version>${owb.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.bval</groupId>
             <artifactId>bval-jsr</artifactId>
             <version>2.0.6</version>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -104,21 +95,19 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
     <repositories>
-      <repository>
-        <id>sonatype-snapshots</id>
-        <name>Sonatype Snapshot Repository</name>
-        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        <releases>
-            <enabled>false</enabled>
-        </releases>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-      </repository>
+        <repository>
+            <id>sonatype-snapshots</id>
+            <name>Sonatype Snapshot Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
-
     <build>
         <plugins>
             <plugin>
@@ -167,14 +156,33 @@
                     </httpConnector>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.2.5</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-
         <resources>
             <resource>
-                <directory>${basedir}/src/main/resources</directory>
+                <directory>${project.basedir}/src/main/resources</directory>
             </resource>
             <resource>
-                <directory>${basedir}/src/main/webapp/WEB-INF</directory>
+                <directory>${project.basedir}/src/main/webapp/WEB-INF</directory>
                 <includes>
                     <include>web.xml</include>
                 </includes>
@@ -183,7 +191,6 @@
             </resource>
         </resources>
     </build>
-
     <profiles>
         <profile>
             <id>myfaces22</id>
@@ -201,7 +208,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/conf/myfaces.properties</filter>
+                    <filter>${project.basedir}/src/main/conf/myfaces.properties</filter>
                 </filters>
             </build>
         </profile>
@@ -221,7 +228,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/conf/myfaces.properties</filter>
+                    <filter>${project.basedir}/src/main/conf/myfaces.properties</filter>
                 </filters>
             </build>
         </profile>
@@ -241,11 +248,10 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/conf/myfaces.properties</filter>
+                    <filter>${project.basedir}/src/main/conf/myfaces.properties</filter>
                 </filters>
             </build>
         </profile>
-
         <profile>
             <id>mojarra22</id>
             <dependencies>
@@ -257,7 +263,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/conf/mojarra.properties</filter>
+                    <filter>${project.basedir}/src/main/conf/mojarra.properties</filter>
                 </filters>
             </build>
         </profile>
@@ -275,7 +281,7 @@
             </dependencies>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/conf/mojarra.properties</filter>
+                    <filter>${project.basedir}/src/main/conf/mojarra.properties</filter>
                 </filters>
             </build>
         </profile>
