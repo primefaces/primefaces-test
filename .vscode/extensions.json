@@ -1,7 +1,7 @@
 {
     "recommendations": [
         "vscjava.vscode-java-pack",
-        "leosj29.jsf-primefaces-intellisense",
+        "FlipWarthog.faces-intellisense",
         "yigitfindikli.primeflexsnippets",
         "redhat.vscode-community-server-connector"
     ]
