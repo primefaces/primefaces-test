@@ -144,7 +144,7 @@
                 <version>${jetty.version}</version>
                 <configuration>
                     <webAppConfig>
-                        <contextPath>/primefaces-test</contextPath>
+                        <contextPath>/</contextPath>
                         <jettyEnvXml>${project.basedir}/src/main/conf/jetty-env.xml</jettyEnvXml>
                     </webAppConfig>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
