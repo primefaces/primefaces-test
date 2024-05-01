@@ -9,16 +9,12 @@ You can execute the sample with <strong>mvn jetty:run</strong> command and hit <
 ### JSF Versions
 ***
 
-Per default the application uses Mojarra 2.2.x. 
-You can also use other versions with the available maven profiles: myfaces22, myfaces23, myfaces23next, mojarra23
-
-`mvn clean jetty:run -Pmyfaces22`
+Per default the application uses Mojarra 2.3.x. 
+You can also use other versions with the available maven profiles: myfaces23, myfaces23next, mojarra23
 
 `mvn clean jetty:run -Pmyfaces23`
 
 `mvn clean jetty:run -Pmyfaces23next`
-
-`mvn clean jetty:run -Pmojarra22`
 
 `mvn clean jetty:run -Pmojarra23`
 
