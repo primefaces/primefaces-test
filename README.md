@@ -5,13 +5,9 @@ This is a sample maven project that uses <strong>Latest PrimeFaces Release versi
 
 You can execute the sample with <strong>mvn jetty:run</strong> command and hit <strong>http://localhost:8080/primefaces-test</strong> to run the page.
 
-Per default the application uses Mojarra 3.0.x. 
-You can also use other versions with the available maven profiles: myfaces30, myfaces40, mojarra40
-
-`mvn clean jetty:run -Pmyfaces30`
+Per default the application uses Mojarra 4.0.x. 
+You can also use other versions with the available maven profiles: myfaces40, mojarra40
 
 `mvn clean jetty:run -Pmyfaces40`
-
-`mvn clean jetty:run -Pmojarra30`
 
 `mvn clean jetty:run -Pmojarra40`
