@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
-import org.primefaces.model.JpaLazyDataModel;
+import org.primefaces.model.JPALazyDataModel;
 import org.primefaces.model.LazyDataModel;
 
 import lombok.Data;
@@ -22,13 +22,17 @@ public class TestView implements Serializable {
 
     @Inject
     private EntityManager em;
-    private LazyDataModel<TestJpa> lazyDataModel;
+    private JPALazyDataModel<TestJpa> lazyDataModel;
 
     @PostConstruct
     public void init() {
-        string = "Welcome to PrimeFaces!!!";
+        string = "PrimeFaces JPA DataTable";
 
-        lazyDataModel = new JpaLazyDataModel<>(TestJpa.class, () -> em);
+        lazyDataModel = JPALazyDataModel.<TestJpa>builder()
+            .entityClass(TestJpa.class)
+            .entityManager(() -> em)
+            .caseSensitive(false)
+            .build();
     }
 
     public LazyDataModel<TestJpa> getLazyDataModel() {
