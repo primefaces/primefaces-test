@@ -34,9 +34,4 @@ public class TestView implements Serializable {
             .caseSensitive(false)
             .build();
     }
-
-    public LazyDataModel<TestJpa> getLazyDataModel() {
-        return lazyDataModel;
-    }
-
 }
