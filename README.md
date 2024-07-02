@@ -30,9 +30,9 @@ By default the application runs on port 8080 but if you would like to use a diff
 
 The branch `jakarta` contains a PrimeFaces Test setup to run again Jakarta EE10 profile using Jetty 11. You can also use other versions with the available maven profiles: mojarra40, myfaces40
 
-`mvn clean jetty:run -mojarra40`
+`mvn clean jetty:run -Pmojarra40`
 
-`mvn clean jetty:run -myfaces40`
+`mvn clean jetty:run -Pmyfaces40`
 
 ### JPA Lazy Datatable
 ***
