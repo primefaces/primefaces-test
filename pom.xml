@@ -196,8 +196,8 @@
         <profile>
             <id>payara5</id>
             <properties>
-                <dependency.payara.version>5.2022.3</dependency.payara.version>
-                <payara-micro-maven-plugin.version>1.4.0</payara-micro-maven-plugin.version>
+                <dependency.payara.version>5.2022.5</dependency.payara.version>
+                <payara-micro-maven-plugin.version>2.0</payara-micro-maven-plugin.version>
                 <deploy.http.port>8080</deploy.http.port>
             </properties>
             <dependencyManagement>
@@ -212,6 +212,10 @@
                 </dependencies>
             </dependencyManagement>
             <dependencies>
+                <dependency>
+                    <groupId>fish.payara.extras</groupId>
+                    <artifactId>payara-micro</artifactId>
+                </dependency>
                 <dependency>
                     <groupId>jakarta.platform</groupId>
                     <artifactId>jakarta.jakartaee-api</artifactId>
@@ -246,6 +250,9 @@
                             <commandLineOptions>
                                 <option>
                                     <key>--disablephonehome</key>
+                                </option>
+                                <option>
+                                    <key>--nocluster</key>
                                 </option>
                                 <option>
                                     <key>--port</key>
