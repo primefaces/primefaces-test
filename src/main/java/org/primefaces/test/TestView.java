@@ -3,12 +3,12 @@ package org.primefaces.test;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.math.BigDecimal;
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
 
 import lombok.Data;
 
@@ -16,14 +16,14 @@ import lombok.Data;
 @Named
 @ViewScoped
 public class TestView implements Serializable {
-    
+
     private String string;
     private Integer integer;
     private BigDecimal decimal;
     private LocalDateTime localDateTime;
     private List<TestObject> list;
-    
-    @PostConstruct  
+
+    @PostConstruct
     public void init() {
         string = "Welcome to PrimeFaces!!!";
         list = new ArrayList<>(Arrays.asList(
