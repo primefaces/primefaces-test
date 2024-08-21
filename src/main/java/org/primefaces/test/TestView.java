@@ -2,11 +2,11 @@ package org.primefaces.test;
 
 import java.io.Serializable;
 
-import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.persistence.EntityManager;
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import jakarta.persistence.EntityManager;
 
 import org.primefaces.model.JPALazyDataModel;
 import org.primefaces.model.LazyDataModel;
