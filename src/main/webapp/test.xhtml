@@ -19,8 +19,8 @@
             <p:dataTable id="tblJpa" widgetVar="jpaTable" var="row" value="#{testView.lazyDataModel}" rows="5">
                 <p:column field="id" />
                 <p:column field="stringCol" />
-                <p:column field="numberCol" />
-                <p:column field="decimalCol" />
+                <p:column field="numberCol" filterMatchMode="gt" />
+                <p:column field="decimalCol" filterMatchMode="gt" />
                 <p:column field="dateCol" >
                     <f:facet name="filter">
                         <p:datePicker onchange="PF('jpaTable').filter()" />
