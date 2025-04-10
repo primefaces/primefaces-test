@@ -14,6 +14,10 @@
         <!-- jetty-specific properties -->
         <jetty.port>8080</jetty.port>
         <jetty.version>12.0.19</jetty.version>
+        <!-- payara-specific properties -->
+        <payara6.port>8080</payara6.port>
+        <payara6.version>6.2025.3</payara6.version>
+        <payara-micro-maven-plugin.version>2.4</payara-micro-maven-plugin.version> <!-- v2.0 is the latest version that works with java8 / v2.1 and later work w/ java11+ -->
     </properties>
     <dependencies>
         <dependency>
@@ -179,6 +183,57 @@
                     <version>4.0.11</version>
                 </dependency>
             </dependencies>
+        </profile>
+        <profile>
+            <id>payara6</id>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>fish.payara.api</groupId>
+                        <artifactId>payara-bom</artifactId>
+                        <version>${payara6.version}</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>fish.payara.extras</groupId>
+                    <artifactId>payara-micro</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.platform</groupId>
+                    <artifactId>jakarta.jakartaee-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>fish.payara.maven.plugins</groupId>
+                        <artifactId>payara-micro-maven-plugin</artifactId>
+                        <version>${payara-micro-maven-plugin.version}</version>
+                        <configuration>
+                            <payaraVersion>${payara6.version}</payaraVersion>
+                            <deployWar>true</deployWar>
+                            <commandLineOptions>
+                                <option>
+                                    <key>--disablephonehome</key>
+                                </option>
+                                <option>
+                                    <key>--port</key>
+                                    <value>${payara6.port}</value>
+                                </option>
+                                <option>
+                                    <key>--nocluster</key>
+                                </option>
+                            </commandLineOptions>
+                            <contextRoot>/</contextRoot>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
