@@ -14,6 +14,10 @@
         <jetty.port>8080</jetty.port>
         <jetty.version>9.4.54.v20240208</jetty.version>
         <owb.version>2.0.27</owb.version>
+        <!-- payara5-specific properties -->
+        <payara5.version>5.2022.5</payara5.version>
+        <payara5.port>8080</payara5.port>
+        <payara-micro-maven-plugin.version>2.4</payara-micro-maven-plugin.version> <!-- v2.0 is the latest version that works with java8 / v2.1 and later work w/ java11+ -->
     </properties>
     <dependencies>
         <dependency>
@@ -182,6 +186,10 @@
                 </dependency>
             </dependencies>
             <build>
+                <filters>
+                    <filter>${basedir}/src/main/conf/mojarra.properties</filter>
+                    <filter>${basedir}/src/main/conf/openwebbeans.properties</filter>
+                </filters>
                 <plugins>
                     <plugin>
                         <groupId>org.eclipse.jetty</groupId>
@@ -260,6 +268,60 @@
                 <filters>
                     <filter>${project.basedir}/src/main/conf/mojarra.properties</filter>
                 </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>payara5</id>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>fish.payara.api</groupId>
+                        <artifactId>payara-bom</artifactId>
+                        <version>${payara5.version}</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>fish.payara.extras</groupId>
+                    <artifactId>payara-micro</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.platform</groupId>
+                    <artifactId>jakarta.jakartaee-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <filters>
+                    <filter>${basedir}/src/main/conf/payara.properties</filter>
+                </filters>
+                <plugins>
+                    <plugin>
+                        <groupId>fish.payara.maven.plugins</groupId>
+                        <artifactId>payara-micro-maven-plugin</artifactId>
+                        <version>${payara-micro-maven-plugin.version}</version>
+                        <configuration>
+                            <payaraVersion>${payara5.version}</payaraVersion>
+                            <deployWar>true</deployWar>
+                            <commandLineOptions>
+                                <option>
+                                    <key>--disablephonehome</key>
+                                </option>
+                                <option>
+                                    <key>--port</key>
+                                    <value>${payara5.port}</value>
+                                </option>
+                                <option>
+                                    <key>--nocluster</key>
+                                </option>
+                            </commandLineOptions>
+                            <contextRoot>/</contextRoot>
+                        </configuration>
+                    </plugin>
+                </plugins>
             </build>
         </profile>
     </profiles>
