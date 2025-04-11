@@ -25,7 +25,7 @@
     </context-param>
 
     <listener>
-        <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
+        <listener-class>${cdi-listener}</listener-class>
     </listener>
     <listener>
         <listener-class>${jsf-listener}</listener-class>
