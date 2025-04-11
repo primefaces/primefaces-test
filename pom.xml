@@ -9,7 +9,25 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <maven.compiler.release>11</maven.compiler.release>
+        <maven.min.version>3.2.5</maven.min.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- dependency version properties -->
+        <primefaces.version>15.0.3</primefaces.version>
+
+        <bval-jsr.version>2.0.6</bval-jsr.version>
+        <el-api.version>3.0.0</el-api.version>
+        <geronimo-atinject10-spec.version>1.2</geronimo-atinject10-spec.version>
+        <geronimo-cdi2-spec.version>1.3</geronimo-cdi2-spec.version>
+        <geronimo-interceptor12-spec.version>1.2</geronimo-interceptor12-spec.version>
+        <geronimo-annotation13-spec.version>1.3</geronimo-annotation13-spec.version>
+        <geronimo-validation2-spec.version>1.1</geronimo-validation2-spec.version>
+        <jaxb-impl.version>2.3.6</jaxb-impl.version>
+        <lombok.version>1.18.38</lombok.version>
+        <mojarra.version>2.3.21</mojarra.version>
+        <myfaces.version>2.3.11</myfaces.version>
+        <myfaces-next.version>2.3-next-M8</myfaces-next.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
+
         <!-- jetty-specific properties -->
         <jetty.port>8080</jetty.port>
         <jetty.version>9.4.54.v20240208</jetty.version>
@@ -17,18 +35,22 @@
         <!-- payara5-specific properties -->
         <payara5.version>5.2022.5</payara5.version>
         <payara5.port>8080</payara5.port>
+        <!-- plugin versions -->
+        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
+        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
         <payara-micro-maven-plugin.version>2.4</payara-micro-maven-plugin.version> <!-- v2.0 is the latest version that works with java8 / v2.1 and later work w/ java11+ -->
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>15.0.3</version>
+            <version>${primefaces.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.38</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -50,7 +72,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
@@ -58,7 +80,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>${maven-war-plugin.version}</version>
                 <configuration>
                     <webResources>
                         <resource>
@@ -76,7 +98,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>${maven-enforcer-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>enforce-maven</id>
@@ -86,7 +108,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>3.2.5</version>
+                                    <version>${maven.min.version}</version>
                                 </requireMavenVersion>
                             </rules>
                         </configuration>
@@ -119,43 +141,43 @@
                 <dependency>
                     <groupId>org.apache.geronimo.specs</groupId>
                     <artifactId>geronimo-atinject_1.0_spec</artifactId>
-                    <version>1.2</version>
+                    <version>${geronimo-atinject10-spec.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.geronimo.specs</groupId>
                     <artifactId>geronimo-jcdi_2.0_spec</artifactId>
-                    <version>1.3</version>
+                    <version>${geronimo-cdi2-spec.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.geronimo.specs</groupId>
                     <artifactId>geronimo-interceptor_1.2_spec</artifactId>
-                    <version>1.2</version>
+                    <version>${geronimo-interceptor12-spec.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.geronimo.specs</groupId>
                     <artifactId>geronimo-annotation_1.3_spec</artifactId>
-                    <version>1.3</version>
+                    <version>${geronimo-annotation13-spec.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.geronimo.specs</groupId>
                     <artifactId>geronimo-validation_2.0_spec</artifactId>
-                    <version>1.1</version>
+                    <version>${geronimo-validation2-spec.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.xml.bind</groupId>
                     <artifactId>jaxb-impl</artifactId>
-                    <version>2.3.6</version>
+                    <version>${jaxb-impl.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>javax.servlet</groupId>
                     <artifactId>javax.servlet-api</artifactId>
-                    <version>4.0.1</version>
+                    <version>${servlet-api.version}</version>
                     <scope>provided</scope>
                 </dependency>
                 <dependency>
                     <groupId>javax.el</groupId>
                     <artifactId>javax.el-api</artifactId>
-                    <version>3.0.0</version>
+                    <version>${el-api.version}</version>
                     <scope>provided</scope>
                 </dependency>
                 <!-- OpenWebBeans -->
@@ -182,7 +204,7 @@
                 <dependency>
                     <groupId>org.apache.bval</groupId>
                     <artifactId>bval-jsr</artifactId>
-                    <version>2.0.6</version>
+                    <version>${bval-jsr.version}</version>
                 </dependency>
             </dependencies>
             <build>
@@ -218,12 +240,12 @@
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-api</artifactId>
-                    <version>2.3.11</version>
+                    <version>${myfaces.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-impl</artifactId>
-                    <version>2.3.11</version>
+                    <version>${myfaces.version}</version>
                 </dependency>
             </dependencies>
             <build>
@@ -238,12 +260,12 @@
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-api</artifactId>
-                    <version>2.3-next-M8</version>
+                    <version>${myfaces-next.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-impl</artifactId>
-                    <version>2.3-next-M8</version>
+                    <version>${myfaces-next.version}</version>
                 </dependency>
             </dependencies>
             <build>
@@ -261,7 +283,7 @@
                 <dependency>
                     <groupId>org.glassfish</groupId>
                     <artifactId>jakarta.faces</artifactId>
-                    <version>2.3.21</version>
+                    <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
             <build>
