@@ -10,38 +10,32 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- dependency version properties -->
+        <primefaces.version>15.0.3</primefaces.version>
+
+        <bval-jsr.version>2.0.6</bval-jsr.version>
+        <jakarta.servlet-api.version>6.1.0</jakarta.servlet-api.version>
+        <lombok.version>1.18.38</lombok.version>
+        <mojarra.version>4.0.11</mojarra.version>
+        <myfaces.version>4.0.3</myfaces.version>
+        <weld-servlet-core.version>6.0.2.Final</weld-servlet-core.version>
+        <!-- jetty-specific properties -->
         <jetty.port>8080</jetty.port>
         <jetty.version>12.0.19</jetty.version>
-        <lombok.version>1.18.38</lombok.version>
+        <!-- payara-specific properties -->
+        <payara6.port>8080</payara6.port>
+        <payara6.version>6.2025.3</payara6.version>
+        <!-- plugin versions -->
+        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
+        <payara-micro-maven-plugin.version>2.4</payara-micro-maven-plugin.version> <!-- v2.0 is the latest version that works with java8 / v2.1 and later work w/ java11+ -->
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>15.0.3</version>
+            <version>${primefaces.version}</version>
             <classifier>jakarta</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet-core</artifactId>
-            <version>6.0.2.Final</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>jakarta.el</groupId>
-                    <artifactId>jakarta.el-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.bval</groupId>
-            <artifactId>bval-jsr</artifactId>
-            <version>2.0.6</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -68,7 +62,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <annotationProcessorPaths>
@@ -83,7 +77,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>${maven-war-plugin.version}</version>
                 <configuration>
                     <webResources>
                         <resource>
@@ -97,31 +91,6 @@
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
                     <webXml>${project.build.directory}/web.xml</webXml>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.jetty.ee10</groupId>
-                <artifactId>jetty-ee10-maven-plugin</artifactId>
-                <version>${jetty.version}</version>
-                <configuration>
-                    <!-- see https://eclipse.dev/jetty/documentation/jetty-12/programming-guide/index.html#jetty-run-goal -->
-                    <webApp>
-                        <contextPath>/</contextPath>
-                    </webApp>
-                    <scan>5</scan>
-                    <webXml>${project.build.directory}/web.xml</webXml>
-                    <httpConnector>
-                        <host>0.0.0.0</host>
-                        <port>${jetty.port}</port>
-                        <idleTimeout>60000</idleTimeout>
-                    </httpConnector>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.eclipse.jetty.ee10</groupId>
-                        <artifactId>jetty-ee10-cdi</artifactId>
-                        <version>${jetty.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
         <resources>
@@ -140,17 +109,76 @@
     </build>
     <profiles>
         <profile>
+            <id>jetty</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.weld.servlet</groupId>
+                    <artifactId>weld-servlet-core</artifactId>
+                    <version>${weld-servlet-core.version}</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>jakarta.el</groupId>
+                            <artifactId>jakarta.el-api</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.servlet</groupId>
+                    <artifactId>jakarta.servlet-api</artifactId>
+                    <version>${jakarta.servlet-api.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.bval</groupId>
+                    <artifactId>bval-jsr</artifactId>
+                    <version>${bval-jsr.version}</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.eclipse.jetty.ee10</groupId>
+                        <artifactId>jetty-ee10-maven-plugin</artifactId>
+                        <version>${jetty.version}</version>
+                        <configuration>
+                            <!-- see https://eclipse.dev/jetty/documentation/jetty-12/programming-guide/index.html#jetty-run-goal -->
+                            <webApp>
+                                <contextPath>/</contextPath>
+                            </webApp>
+                            <scan>5</scan>
+                            <webXml>${project.build.directory}/web.xml</webXml>
+                            <httpConnector>
+                                <host>0.0.0.0</host>
+                                <port>${jetty.port}</port>
+                                <idleTimeout>60000</idleTimeout>
+                            </httpConnector>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.eclipse.jetty.ee10</groupId>
+                                <artifactId>jetty-ee10-cdi</artifactId>
+                                <version>${jetty.version}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>myfaces40</id>
             <dependencies>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-api</artifactId>
-                    <version>4.0.3</version>
+                    <version>${myfaces.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-impl</artifactId>
-                    <version>4.0.3</version>
+                    <version>${myfaces.version}</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -163,9 +191,60 @@
                 <dependency>
                     <groupId>org.glassfish</groupId>
                     <artifactId>jakarta.faces</artifactId>
-                    <version>4.0.11</version>
+                    <version>${mojarra.version}</version>
                 </dependency>
             </dependencies>
+        </profile>
+        <profile>
+            <id>payara6</id>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>fish.payara.api</groupId>
+                        <artifactId>payara-bom</artifactId>
+                        <version>${payara6.version}</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>fish.payara.extras</groupId>
+                    <artifactId>payara-micro</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.platform</groupId>
+                    <artifactId>jakarta.jakartaee-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>fish.payara.maven.plugins</groupId>
+                        <artifactId>payara-micro-maven-plugin</artifactId>
+                        <version>${payara-micro-maven-plugin.version}</version>
+                        <configuration>
+                            <payaraVersion>${payara6.version}</payaraVersion>
+                            <deployWar>true</deployWar>
+                            <commandLineOptions>
+                                <option>
+                                    <key>--disablephonehome</key>
+                                </option>
+                                <option>
+                                    <key>--port</key>
+                                    <value>${payara6.port}</value>
+                                </option>
+                                <option>
+                                    <key>--nocluster</key>
+                                </option>
+                            </commandLineOptions>
+                            <contextRoot>/</contextRoot>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
