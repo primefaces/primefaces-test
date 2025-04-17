@@ -49,18 +49,9 @@ See the [quickstart guide for running in Visual Studio Code](./vscode-quickstart
 ### Running with Payara
 ***
 
-The `payara5-javax` and `payara6-jakarta` branches contain a PrimeFaces Test setup to run against a JavaEE/JakartaEE profile using Payara v5/v6 and its bundled Mojarra implementation of the Faces specification.  When using this setup, it is possible to use the `payara-micro:start` command and navigate to <strong>http://localhost:8080/</strong> to access the page.
+The `payara` branch contain a PrimeFaces Test setup to run against a JakartaEE profile using Payara v6 and its bundled Mojarra implementation of the Faces specification.  When using this setup, it is possible to use the `payara-micro:start` command and navigate to **http://localhost:8080/** to access the page.
 
-For the `payara5-javax` branch, Payara v5 will be used, supports JavaEE/JakartaEE v8/v9/v9.1 with the javax package
-  namespace, and works with Java11 and Java17. Use it with the following maven invocation:
-
-`mvn clean verify payara-micro:start -Ppayara5`
-
-A custom port can also be specified:
-
-`mvn clean verify payara-micro:start -Ppayara5 -Dpayara5.port=5000`
-
-For the `payara6-jakarta` branch, Payara v6 will be used, supports JakartaEE v10 with the jakarta package namespace, and works with Java11 through Java21. Use it with the following maven invocation:
+Payara v6 will be used, supports JakartaEE v10 with the jakarta package namespace, and works with Java11 through Java21. Use it with the following maven invocation:
 
 `mvn clean verify payara-micro:start -Ppayara6`
 
