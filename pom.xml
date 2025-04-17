@@ -24,7 +24,7 @@
         <jetty.version>12.0.19</jetty.version>
         <!-- payara-specific properties -->
         <payara6.port>8080</payara6.port>
-        <payara6.version>6.2025.3</payara6.version>
+        <payara6.version>6.2025.4</payara6.version>
         <!-- plugin versions -->
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
