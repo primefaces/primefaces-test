@@ -11,7 +11,7 @@
         <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- dependency version properties -->
-        <primefaces.version>15.0.3</primefaces.version>
+        <primefaces.version>15.0.4</primefaces.version>
 
         <bval-jsr.version>2.0.6</bval-jsr.version>
         <jakarta.servlet-api.version>6.1.0</jakarta.servlet-api.version>
