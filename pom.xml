@@ -21,7 +21,7 @@
         <weld-servlet-core.version>6.0.2.Final</weld-servlet-core.version>
         <!-- jetty-specific properties -->
         <jetty.port>8080</jetty.port>
-        <jetty.version>12.0.20</jetty.version>
+        <jetty.version>12.0.21</jetty.version>
         <!-- payara-specific properties -->
         <payara6.port>8080</payara6.port>
         <payara6.version>6.2025.4</payara6.version>
