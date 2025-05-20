@@ -3,6 +3,7 @@
     <persistence-unit name="ExampleDatasource" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>org.primefaces.test.TestJpa</class>
+        <class>org.primefaces.test.ChildJpa</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:hsqldb:mem:test" />
             <property name="jakarta.persistence.jdbc.user" value="root" />
