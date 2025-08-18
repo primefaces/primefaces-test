@@ -11,7 +11,7 @@
         <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <owb.version>2.0.27</owb.version>
-        <jetty.version>9.4.54.v20240208</jetty.version>
+        <jetty.version>11.0.26</jetty.version>
         <jetty.port>8080</jetty.port>
     </properties>
     <dependencies>
