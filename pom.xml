@@ -13,7 +13,7 @@
         <hibernate.version>7.2.2.Final</hibernate.version>
         <hsqldb.version>2.7.4</hsqldb.version>
         <lombok.version>1.18.42</lombok.version>
-        <jetty.version>12.1.5</jetty.version>
+        <jetty.version>12.1.6</jetty.version>
         <jetty.port>8080</jetty.port>
     </properties>
     <dependencies>
