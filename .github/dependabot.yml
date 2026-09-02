@@ -4,14 +4,14 @@ updates:
     directory: "/"
     target-branch: "master"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "maven"
     directory: "/"
     target-branch: "javax"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "maven"
     directory: "/"
     target-branch: "jpa"
     schedule:
-      interval: "daily"
+      interval: "monthly"
