@@ -7,11 +7,6 @@ updates:
       interval: "monthly"
   - package-ecosystem: "maven"
     directory: "/"
-    target-branch: "javax"
-    schedule:
-      interval: "monthly"
-  - package-ecosystem: "maven"
-    directory: "/"
     target-branch: "jpa"
     schedule:
       interval: "monthly"
