@@ -13,7 +13,7 @@
         <hibernate.version>7.4.7.Final</hibernate.version>
         <hsqldb.version>2.7.4</hsqldb.version>
         <lombok.version>1.18.46</lombok.version>
-        <jetty.version>12.1.12</jetty.version>
+        <jetty.version>12.1.13</jetty.version>
         <jetty.port>8080</jetty.port>
     </properties>
     <dependencies>
@@ -159,12 +159,12 @@
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-api</artifactId>
-                    <version>4.0.3</version>
+                    <version>4.0.4</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.myfaces.core</groupId>
                     <artifactId>myfaces-impl</artifactId>
-                    <version>4.0.3</version>
+                    <version>4.0.4</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -177,7 +177,7 @@
                 <dependency>
                     <groupId>org.glassfish</groupId>
                     <artifactId>jakarta.faces</artifactId>
-                    <version>4.0.24</version>
+                    <version>4.0.25</version>
                 </dependency>
             </dependencies>
         </profile>
